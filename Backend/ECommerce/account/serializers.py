@@ -39,5 +39,5 @@ class LoginSerializer(serializers.Serializer):
         else:
             raise serializers.ValidationError("Must include 'username' and 'password'")
 
-        data['user'] = user
+        data['account'] = user
         return data
