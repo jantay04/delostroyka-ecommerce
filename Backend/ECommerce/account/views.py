@@ -10,12 +10,20 @@ from .serializers import UserSerializer, LoginSerializer
 
 # Create your views here.
 
-class UserCreateAPIView(generics.CreateAPIView):
+class UserManageViewSet(viewsets.ModelViewSet):
+    queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAdminUser]
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save()
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class UserLoginView(views.APIView):
@@ -25,7 +33,7 @@ class UserLoginView(views.APIView):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        user = serializer.validated_data['account']
+        user = serializer.validated_data['user']
         login(request, user)
 
         return Response({'detail': 'Successfully logged in'}, status=status.HTTP_200_OK)

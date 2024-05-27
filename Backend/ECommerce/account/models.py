@@ -31,7 +31,7 @@ class CustomUser(AbstractUser):
         ('продавец', 'Продавец'),
         ('бухгалтер', 'Бухгалтер'),
     ]
-
+    avatar = models.ImageField(upload_to='avatars/', default='avatars/default_avatar.jpg')
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
     position = models.CharField(max_length=50, choices=POSITION_CHOICES, blank=True)

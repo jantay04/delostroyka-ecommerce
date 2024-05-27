@@ -6,7 +6,7 @@ from .models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'position', 'username', 'password')
+        fields = ('avatar', 'first_name', 'last_name', 'position', 'username', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -39,5 +39,5 @@ class LoginSerializer(serializers.Serializer):
         else:
             raise serializers.ValidationError("Must include 'username' and 'password'")
 
-        data['account'] = user
+        data['user'] = user
         return data
