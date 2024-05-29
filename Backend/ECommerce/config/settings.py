@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     
     # apps
     'account.apps.AccountConfig',
+    'product.apps.ProductConfig',
+    'provider.apps.ProviderConfig',
+    'cart.apps.CartConfig',
+    'order.apps.OrderConfig',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -144,7 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     # YOUR SETTINGS
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'config.schemas.CustomAutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
     ],
