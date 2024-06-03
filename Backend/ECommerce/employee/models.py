@@ -1,9 +1,10 @@
 from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from user.models import CustomUser
 
-class CustomUserManager(BaseUserManager):
+
+class UserManager(BaseUserManager):
     def create_user(self, username=None, password=None, **extra_fields):
         if username == '':
             raise ValueError('Укажите логин')
@@ -24,25 +25,25 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(username, password, **extra_fields)
 
 
-# Create your models here.
-class CustomUser(AbstractUser):
+class Employee(models.Model):
     POSITION_CHOICES = [
         ('админ', 'Админ'),
         ('продавец', 'Продавец'),
         ('бухгалтер', 'Бухгалтер'),
     ]
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='employee_profile')
     avatar = models.ImageField(upload_to='avatars/', default='avatars/default_avatar.jpg')
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name = models.CharField(max_length=30, blank=True)
+    first_name = models.CharField(max_length=25, blank=True)
+    last_name = models.CharField(max_length=25, blank=True)
     position = models.CharField(max_length=50, choices=POSITION_CHOICES, blank=True)
-    username = models.CharField(max_length=50, unique=True, default='default_username')
+    username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=128)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
 
-    objects = CustomUserManager()
+    objects = UserManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name']

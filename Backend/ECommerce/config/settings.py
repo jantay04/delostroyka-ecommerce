@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'drf_spectacular',
     
     # apps
-    'account.apps.AccountConfig',
+    'user.apps.UserConfig',
+    'client.apps.ClientConfig',
+    'employee.apps.EmployeeConfig',
     'product.apps.ProductConfig',
     'provider.apps.ProviderConfig',
     'cart.apps.CartConfig',
@@ -70,6 +72,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -87,6 +90,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
 
 
 # Database
@@ -126,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -160,7 +164,7 @@ REST_FRAMEWORK = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'  # Adjust the path as needed
-AUTH_USER_MODEL = 'account.CustomUser'
+AUTH_USER_MODEL = 'user.CustomUser'
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Delo Stroyka API',
@@ -169,3 +173,4 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
+
