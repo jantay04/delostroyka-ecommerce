@@ -44,12 +44,10 @@ INSTALLED_APPS = [
     
     # apps
     'user.apps.UserConfig',
-    'client.apps.ClientConfig',
-    'employee.apps.EmployeeConfig',
     'product.apps.ProductConfig',
-    'provider.apps.ProviderConfig',
     'cart.apps.CartConfig',
     'order.apps.OrderConfig',
+    'review.apps.ReviewConfig',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -58,6 +56,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:9000",
 ]
+
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
