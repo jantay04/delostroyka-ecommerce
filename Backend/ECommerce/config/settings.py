@@ -29,25 +29,28 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
-
+THIRD_PARTY_PACKAGES = [
+    'jazzmin',
+    'rest_framework',
+    'drf_spectacular',
+]
 # Application definition
-
+APPS = [
+    'user.apps.UserConfig',
+    'product.apps.ProductConfig',
+    'cart.apps.CartConfig',
+    'order.apps.OrderConfig',
+    'review.apps.ReviewConfig',
+]
 INSTALLED_APPS = [
+    *THIRD_PARTY_PACKAGES,
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'drf_spectacular',
-    
-    # apps
-    'user.apps.UserConfig',
-    'product.apps.ProductConfig',
-    'cart.apps.CartConfig',
-    'order.apps.OrderConfig',
-    'review.apps.ReviewConfig',
+    *APPS,
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -57,8 +60,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:9000",
 ]
 
-
-ACCOUNT_EMAIL_VERIFICATION = "none"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
