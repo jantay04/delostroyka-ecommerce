@@ -39,12 +39,12 @@ THIRD_PARTY_PACKAGES = [
 ]
 # Application definition
 APPS = [
-    'apps.user.apps.UserConfig',
-    'apps.product.apps.ProductConfig',
-    'apps.cart.apps.CartConfig',
-    'apps.order.apps.OrderConfig',
-    'apps.review.apps.ReviewConfig',
-    'apps.provider.apps.ProviderConfig',
+    'apps.user',
+    'apps.product',
+    'apps.cart',
+    'apps.order',
+    'apps.review',
+    'apps.provider',
 ]
 INSTALLED_APPS = [
     *THIRD_PARTY_PACKAGES,
