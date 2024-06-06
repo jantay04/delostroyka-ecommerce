@@ -142,7 +142,7 @@ data
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
+db.sqlite3
 # Pyre type checker
 .pyre/
 # pytype static type analyzer

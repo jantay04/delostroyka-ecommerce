@@ -35,7 +35,7 @@ class Order(models.Model):
     shipping_country = models.CharField(max_length=100, verbose_name='Страна', default='Страна не указана')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Пользователь')
     total_amount = models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Кол-во')
-    status = models.CharField(choices=ORDER_STATUS_CHOICES, default=DRAFT, verbose_name='Статус заказа')
+    status = models.CharField(max_length=15, choices=ORDER_STATUS_CHOICES, default=DRAFT, verbose_name='Статус заказа')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Последнее обновление')
 
