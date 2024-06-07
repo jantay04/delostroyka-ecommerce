@@ -31,6 +31,7 @@ DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = ['*']
 
 THIRD_PARTY_PACKAGES = [
+    'django_filters',
     'jazzmin',
     'rest_framework',
     'drf_spectacular',
@@ -148,7 +149,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
        'rest_framework.permissions.AllowAny',
        'rest_framework.permissions.IsAdminUser',
-]
+        ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ]
 }
 
 MEDIA_URL = '/media/'
