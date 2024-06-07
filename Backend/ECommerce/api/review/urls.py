@@ -1,6 +1,6 @@
 from rest_framework import routers
 
-from apps.review.views import ReviewViewSet
+from api.review.views import ReviewViewSet
 
 router = routers.SimpleRouter()
 

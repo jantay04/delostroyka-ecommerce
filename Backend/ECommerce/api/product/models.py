@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import Avg
 from autoslug import AutoSlugField
 
-from apps.user.models import CustomUser
+from api.user.models import CustomUser
 
 
 class Category(models.Model):

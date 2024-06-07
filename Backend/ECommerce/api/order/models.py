@@ -1,8 +1,8 @@
 from django.db import models
 
 
-from apps.product.models import Product
-from apps.user.models import CustomUser
+from api.product.models import Product
+from api.user.models import CustomUser
 
 
 # Create your models here.

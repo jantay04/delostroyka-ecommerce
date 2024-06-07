@@ -39,12 +39,13 @@ THIRD_PARTY_PACKAGES = [
 ]
 # Application definition
 APPS = [
-    'apps.user',
-    'apps.product',
-    'apps.cart',
-    'apps.order',
-    'apps.review',
-    'apps.provider',
+    'api',
+    'api.user',
+    'api.product',
+    'api.cart',
+    'api.order',
+    'api.review',
+    'api.provider',
 ]
 INSTALLED_APPS = [
     *THIRD_PARTY_PACKAGES,
@@ -70,7 +71,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'config.urls'
 
 
 TEMPLATES = [
@@ -89,7 +90,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 
@@ -142,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     # YOUR SETTINGS
-    'DEFAULT_SCHEMA_CLASS': 'core.schemas.CustomAutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'config.schemas.CustomAutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
     ],

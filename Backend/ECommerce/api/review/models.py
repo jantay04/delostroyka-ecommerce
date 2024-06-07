@@ -1,7 +1,7 @@
-from core.settings import base
+from config.settings import base
 from django.db import models
 
-from apps.product.models import Product
+from api.product.models import Product
 
 
 # Create your models here.

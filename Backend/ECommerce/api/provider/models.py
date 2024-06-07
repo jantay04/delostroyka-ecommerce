@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.user.models import CustomUser
+from api.user.models import CustomUser
 
 
 # Create your models here.

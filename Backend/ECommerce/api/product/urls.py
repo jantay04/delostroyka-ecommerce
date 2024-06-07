@@ -1,6 +1,6 @@
 from rest_framework import routers
 
-from apps.product.views import ProductViewSet, CategoryViewSet, ProductImageViewSet
+from api.product.views import ProductViewSet, CategoryViewSet, ProductImageViewSet
 
 router = routers.SimpleRouter()
 router.register(r'products', ProductViewSet, basename='products')

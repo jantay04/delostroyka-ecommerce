@@ -1,6 +1,6 @@
 from rest_framework import routers
 
-from apps.cart.views import CartViewSet, CartItemViewSet
+from api.cart.views import CartViewSet, CartItemViewSet
 
 router = routers.SimpleRouter()
 router.register(r'carts', CartViewSet, basename='carts')
